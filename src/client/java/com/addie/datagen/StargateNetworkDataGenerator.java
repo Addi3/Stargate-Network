@@ -75,6 +75,14 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
                     .criterion(hasItem(Blocks.BLACK_CONCRETE), conditionsFromItem(Blocks.BLACK_CONCRETE))
                     .criterion(hasItem(Blocks.COMPARATOR), conditionsFromItem(Blocks.COMPARATOR)));
 
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, StargateNetworkBlocks.LIGHT, 1)
+                    .pattern("R")
+                    .pattern("I")
+                    .input('I',Items.IRON_INGOT)
+                    .input('R',Blocks.REDSTONE_LAMP)
+                    .criterion(hasItem(Blocks.REDSTONE_LAMP), conditionsFromItem(Blocks.REDSTONE_LAMP))
+                    .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT)));
+
 
             provider.addStonecutting(Blocks.YELLOW_CONCRETE, StargateNetworkBlocks.CAUTION_BLOCK,1);
 
@@ -93,6 +101,7 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
         // Blocks
             provider.addTranslation(StargateNetworkBlocks.CAUTION_BLOCK,"Caution Block");
             provider.addTranslation(StargateNetworkBlocks.TERMINAL_BLOCK,"Terminal");
+            provider.addTranslation(StargateNetworkBlocks.LIGHT,"Emergancy Light");
 
             return provider;
         })));

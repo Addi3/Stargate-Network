@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "half=bottom,lit=false": { "model": "stargate-network:block/light" },
+    "half=bottom,lit=true":  { "model": "stargate-network:block/light_on" },
+    "half=top,lit=false":    { "model": "stargate-network:block/light_roof" },
+    "half=top,lit=true":     { "model": "stargate-network:block/light_on_roof" }
+  }
+}

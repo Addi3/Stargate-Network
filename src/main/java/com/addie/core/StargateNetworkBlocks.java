@@ -1,5 +1,6 @@
 package com.addie.core;
 
+import com.addie.core.blocks.LightBlock;
 import com.addie.core.blocks.TerminalBlock;
 import dev.amble.lib.block.ABlockSettings;
 import dev.amble.lib.container.impl.BlockContainer;
@@ -19,6 +20,12 @@ public class StargateNetworkBlocks extends BlockContainer {
     public static final Block CAUTION_BLOCK = new Block(ABlockSettings.create()
             .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
             .strength(1.0F, 3.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.CALCITE));
+
+    @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
+    @NoEnglish
+    public static final Block LIGHT = new LightBlock(ABlockSettings.create()
+            .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
+            .strength(1.0F, 2.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.COPPER));
 
 
     @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
