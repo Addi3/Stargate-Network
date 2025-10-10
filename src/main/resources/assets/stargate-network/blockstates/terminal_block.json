@@ -1,0 +1,6 @@
+
+{
+  "variants": {
+    "": { "model": "stargate-network:block/terminal_block" }
+  }
+}

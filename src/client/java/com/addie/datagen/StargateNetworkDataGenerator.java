@@ -12,6 +12,12 @@ import dev.amble.lib.datagen.tag.AmbleBlockTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.item.Items;
+import net.minecraft.recipe.book.RecipeCategory;
+
+import static net.minecraft.data.server.recipe.RecipeProvider.conditionsFromItem;
+import static net.minecraft.data.server.recipe.RecipeProvider.hasItem;
 
 public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
     @Override
@@ -56,6 +62,19 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
         pack.addProvider((((output, registriesFuture) -> {
             StargateNetworkRecipeProvider provider = new StargateNetworkRecipeProvider(output);
 
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.TERMINAL_BLOCK, 1)
+                    .pattern("BII")
+                    .pattern("RII")
+                    .pattern("CRI")
+                    .input('I',Items.IRON_INGOT)
+                    .input('R',Items.REDSTONE)
+                    .input('B',Blocks.BLACK_CONCRETE)
+                    .input('C',Blocks.COMPARATOR)
+                    .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                    .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
+                    .criterion(hasItem(Blocks.BLACK_CONCRETE), conditionsFromItem(Blocks.BLACK_CONCRETE))
+                    .criterion(hasItem(Blocks.COMPARATOR), conditionsFromItem(Blocks.COMPARATOR)));
+
 
             provider.addStonecutting(Blocks.YELLOW_CONCRETE, StargateNetworkBlocks.CAUTION_BLOCK,1);
 
@@ -73,6 +92,7 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
 
         // Blocks
             provider.addTranslation(StargateNetworkBlocks.CAUTION_BLOCK,"Caution Block");
+            provider.addTranslation(StargateNetworkBlocks.TERMINAL_BLOCK,"Terminal");
 
             return provider;
         })));

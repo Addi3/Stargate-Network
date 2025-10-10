@@ -1,0 +1,13 @@
+package com.addie.core;
+
+import com.addie.core.blockentites.TerminalBlockEntity;
+import dev.amble.lib.container.impl.BlockEntityContainer;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.block.entity.BlockEntityType;
+
+public class StargateNetworkBlockEntityTypes implements BlockEntityContainer {
+
+    public static BlockEntityType<TerminalBlockEntity> TERMINAL_BLOCK_ENTITY_TYPE = FabricBlockEntityTypeBuilder
+            .create(TerminalBlockEntity::new, StargateNetworkBlocks.TERMINAL_BLOCK).build();
+
+}
