@@ -22,7 +22,7 @@
 			"com.addie.StargateNetworkClient"
 		],
 		"fabric-datagen": [
-			"com.addie.StargateNetworkDataGenerator"
+          "com.addie.datagen.StargateNetworkDataGenerator"
 		]
 	},
 	"mixins": [
