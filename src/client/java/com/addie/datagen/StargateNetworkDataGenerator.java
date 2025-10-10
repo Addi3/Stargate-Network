@@ -68,6 +68,9 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
         pack.addProvider((((output, registriesFuture) -> {
             AmbleLanguageProvider provider = new AmbleLanguageProvider(output, LanguageType.EN_US);
 
+        // Misc
+            provider.addTranslation("itemGroup.stargate-network.item_group",  "Stargate Network");
+
         // Blocks
             provider.addTranslation(StargateNetworkBlocks.CAUTION_BLOCK,"Caution Block");
 

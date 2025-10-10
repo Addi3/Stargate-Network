@@ -48,7 +48,7 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    modImplementation "com.github.amblelabs:stargate:${project.stargate_version}"
+    modCompileOnlyApi "com.github.amblelabs:stargate:${project.stargate_version}"
 
     modImplementation "dev.drtheo:scheduler:${project.scheduler_version}"
     modImplementation "dev.drtheo:queue:${project.queue_version}"
