@@ -24,11 +24,12 @@ AIT extras but its not ait and its actually stargate :D
 
 ### What does this add / do?
 
-- This adds features from the shows/movies that Stargate doesn't, such as:
-  - New blocks / Items
-  - Planets
-  - Mobs
-  - And more!
+- This adds features from the shows/movies that the Stargate mod doesn't, such as:
+    - New blocks / Items
+    - Planets
+    - Mobs
+    - Decorations
+    - And more!
 
 ### Will this mod be ported to forge or neoforge?
 
