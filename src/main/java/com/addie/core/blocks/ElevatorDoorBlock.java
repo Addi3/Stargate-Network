@@ -35,8 +35,11 @@ public class ElevatorDoorBlock extends Block implements BlockEntityProvider  {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.getBlockEntity(pos) instanceof ElevatorDoorBlockEntity be) {
 
-            if (!world.isClient) {
-                world.setBlockState(pos, state.with(ElevatorDoorBlock.OPEN, true), Block.NOTIFY_ALL);
+            if (!world.isClient) { // Server-side only
+                boolean isOpen = state.get(ElevatorDoorBlock.OPEN);
+
+                // Toggle the door
+                world.setBlockState(pos, state.with(ElevatorDoorBlock.OPEN, !isOpen), Block.NOTIFY_ALL);
 
                 // Play the sound
                 world.playSound(

@@ -39,6 +39,6 @@ public class StargateNetworkBlocks extends BlockContainer {
     @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
     @NoEnglish
     public static final Block ELEVATOR_DOOR_BLOCK = new ElevatorDoorBlock(ABlockSettings.create()
-            .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
+            .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool().nonOpaque()
             .strength(1.5F, 6.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.METAL));
 }

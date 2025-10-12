@@ -65,11 +65,12 @@ public class ElevatorDoorBlockEntity  extends BlockEntity implements AnimatedBlo
         BlockState state = world.getBlockState(pos);
 
         if (state.get(ElevatorDoorBlock.OPEN)) {
-            this.playAnimation(new BedrockAnimationReference("elevator_door_block", "open"));
+            this.playAnimation(new BedrockAnimationReference("elevator_door_block", "animation.model.open"));
         } else {
-            this.playAnimation(new BedrockAnimationReference("elevator_door_block", "close"));
+            this.playAnimation(new BedrockAnimationReference("elevator_door_block", "animation.model.close"));
         }
     }
+
 
 
     @Override
