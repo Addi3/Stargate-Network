@@ -71,16 +71,5 @@ public class ElevatorDoorBlockEntity  extends BlockEntity implements AnimatedBlo
         }
     }
 
-
-
-    @Override
-    public int getAge() {
-        return 0;
-    }
-
-    @Override
-    public AnimationState getAnimationState() {
-        return null;
-    }
 }
 

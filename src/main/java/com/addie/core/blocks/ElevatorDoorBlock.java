@@ -47,7 +47,7 @@ public class ElevatorDoorBlock extends Block implements BlockEntityProvider  {
                         pos,
                         StargateNetworkSounds.BLAST_DOOR_SMALL,
                         SoundCategory.BLOCKS,
-                        1.0f,
+                        3.0f,
                         1.0f
                 );
             }
