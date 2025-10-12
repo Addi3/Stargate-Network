@@ -1,0 +1,41 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.model.open": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.75,
+			"bones": {
+				"Rdoor": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.75": [14, 0, 0]
+					}
+				},
+				"Ldoor": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.75": [-14, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.model.close": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.75,
+			"bones": {
+				"Rdoor": {
+					"position": {
+						"0.0": [14, 0, 0],
+						"0.75": [0, 0, 0]
+					}
+				},
+				"Ldoor": {
+					"position": {
+						"0.0": [-14, 0, 0],
+						"0.75": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}
