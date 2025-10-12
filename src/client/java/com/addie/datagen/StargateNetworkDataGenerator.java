@@ -8,6 +8,7 @@ import com.addie.datagen.providers.StargateNetworkRecipeProvider;
 import dev.amble.lib.datagen.lang.AmbleLanguageProvider;
 import dev.amble.lib.datagen.lang.LanguageType;
 import dev.amble.lib.datagen.loot.AmbleBlockLootTable;
+import dev.amble.lib.datagen.sound.AmbleSoundProvider;
 import dev.amble.lib.datagen.tag.AmbleBlockTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -30,6 +31,7 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
         genTags(pack);
         genModels(pack);
         generateItemTags(pack);
+        generateSoundData(pack);
     }
 
 
@@ -41,6 +43,10 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
             return provider;
         }));
 
+    }
+
+    public void generateSoundData(FabricDataGenerator.Pack pack) {
+        pack.addProvider((((output, registriesFuture) -> new AmbleSoundProvider(output))));
     }
 
     public void generateItemTags(FabricDataGenerator.Pack pack) {

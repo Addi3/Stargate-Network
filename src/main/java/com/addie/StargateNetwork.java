@@ -1,9 +1,6 @@
 package com.addie;
 
-import com.addie.core.StargateNetworkBlockEntityTypes;
-import com.addie.core.StargateNetworkBlocks;
-import com.addie.core.StargateNetworkItemGroups;
-import com.addie.core.StargateNetworkItems;
+import com.addie.core.*;
 import dev.amble.lib.container.RegistryContainer;
 import net.fabricmc.api.ModInitializer;
 
@@ -27,5 +24,6 @@ public class StargateNetwork implements ModInitializer {
         RegistryContainer.register(StargateNetworkItemGroups.class, MOD_ID);
         RegistryContainer.register(StargateNetworkItems.class, MOD_ID);
         RegistryContainer.register(StargateNetworkBlockEntityTypes.class, MOD_ID);
+        StargateNetworkSounds.init();
 	}
 }

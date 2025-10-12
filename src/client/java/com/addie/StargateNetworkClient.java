@@ -1,5 +1,6 @@
 package com.addie;
 
+
 import com.addie.core.StargateNetworkBlockEntityTypes;
 import com.addie.core.StargateNetworkBlocks;
 import com.addie.renderers.TerminalRenderer;
@@ -23,5 +24,6 @@ public class StargateNetworkClient implements ClientModInitializer {
     public static void BlockRenderLayerMapRegister() {
         BlockRenderLayerMap.INSTANCE.putBlock(StargateNetworkBlocks.LIGHT, RenderLayer.getCutout());
     }
+
 
 }

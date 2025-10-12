@@ -1,5 +1,6 @@
 package com.addie.core;
 
+import com.addie.core.blocks.ElevatorDoorBlock;
 import com.addie.core.blocks.LightBlock;
 import com.addie.core.blocks.TerminalBlock;
 import dev.amble.lib.block.ABlockSettings;
@@ -31,6 +32,13 @@ public class StargateNetworkBlocks extends BlockContainer {
     @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
     @NoEnglish
     public static final Block TERMINAL_BLOCK = new TerminalBlock(ABlockSettings.create()
+            .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
+            .strength(1.5F, 6.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.METAL));
+
+
+    @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
+    @NoEnglish
+    public static final Block ELEVATOR_DOOR_BLOCK = new ElevatorDoorBlock(ABlockSettings.create()
             .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
             .strength(1.5F, 6.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.METAL));
 }

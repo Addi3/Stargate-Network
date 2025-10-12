@@ -12,10 +12,10 @@ base {
 
 repositories {
     maven {
-        url "https://jitpack.io"
-
-        metadataSources {
-            artifact() // Look directly for artifact
+        name = "JitPack"
+        url = "https://jitpack.io"
+        content {
+            includeGroup "com.github.amblelabs"
         }
     }
 
@@ -53,22 +53,30 @@ dependencies {
     modImplementation "dev.drtheo:scheduler:${project.scheduler_version}"
     modImplementation "dev.drtheo:queue:${project.queue_version}"
 
-    modApi("com.github.amblelabs:modkit:v${project.amblekit_version}") {
-        exclude(group: "net.fabricmc.fabric-api")
-    }
+    modImplementation "com.github.amblelabs:modkit:${project.use_amblekit_dev ? project.amblekit_dev_version : project.amblekit_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	
+
+    // getter setter
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    testCompileOnly 'org.projectlombok:lombok:1.18.34'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+}
+
+configurations.all {
+    resolutionStrategy {
+        force "com.github.amblelabs:modkit:${project.use_amblekit_dev ? project.amblekit_dev_version : project.amblekit_version}"
+    }
 }
 
 processResources {
 	inputs.property "version", project.version
-    inputs.property "amblekit_version", project.amblekit_version
 
 	filesMatching("fabric.mod.json") {
-		expand "version": inputs.properties.version,
-        "amblekit_version": project.amblekit_version
+		expand "version": inputs.properties.version
 	}
 }
 
