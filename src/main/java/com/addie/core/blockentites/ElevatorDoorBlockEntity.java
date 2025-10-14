@@ -59,9 +59,9 @@ public class ElevatorDoorBlockEntity  extends BlockEntity implements AnimatedBlo
         age++;
     }
 
-    public void useOn(World world, BlockPos pos, PlayerEntity player) {
-        if (world.isClient) return;
 
+    public void useOn(World world, boolean sneaking, PlayerEntity player) {
+        if (world.isClient) return;
         BlockState state = world.getBlockState(pos);
 
         if (state.get(ElevatorDoorBlock.OPEN)) {
@@ -70,6 +70,6 @@ public class ElevatorDoorBlockEntity  extends BlockEntity implements AnimatedBlo
             this.playAnimation(new BedrockAnimationReference("elevator_door_block", "animation.model.close"));
         }
     }
-
 }
+
 

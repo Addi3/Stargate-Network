@@ -15,6 +15,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -24,6 +27,20 @@ public class ElevatorDoorBlock extends Block implements BlockEntityProvider  {
 	public  ElevatorDoorBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(OPEN, false));
+    }
+
+    protected static final VoxelShape SHAPE= Block.createCuboidShape(
+            -16, 0, 0, 32, 48, 16
+    );
+
+    @Override
+    public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return state.get(OPEN) ? VoxelShapes.empty() : SHAPE;
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        return SHAPE;
     }
 
     @Override
@@ -38,10 +55,8 @@ public class ElevatorDoorBlock extends Block implements BlockEntityProvider  {
             if (!world.isClient) { // Server-side only
                 boolean isOpen = state.get(ElevatorDoorBlock.OPEN);
 
-                // Toggle the door
                 world.setBlockState(pos, state.with(ElevatorDoorBlock.OPEN, !isOpen), Block.NOTIFY_ALL);
 
-                // Play the sound
                 world.playSound(
                         null,
                         pos,
@@ -52,6 +67,8 @@ public class ElevatorDoorBlock extends Block implements BlockEntityProvider  {
                 );
             }
 
+
+            be.useOn(world, player.isSneaking(), player);
             return ActionResult.SUCCESS;
         }
 
