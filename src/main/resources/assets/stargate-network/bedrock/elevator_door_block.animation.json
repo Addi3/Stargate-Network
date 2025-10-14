@@ -4,6 +4,7 @@
 		"animation.model.open": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.75,
+			"override_previous_animation": true,
 			"bones": {
 				"Rdoor": {
 					"position": {
@@ -24,6 +25,7 @@
 		"animation.model.close": {
 			"loop": "hold_on_last_frame",
 			"animation_length": 0.75,
+			"override_previous_animation": true,
 			"bones": {
 				"Rdoor": {
 					"position": {
