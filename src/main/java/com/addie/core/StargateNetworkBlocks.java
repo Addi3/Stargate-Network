@@ -1,8 +1,6 @@
 package com.addie.core;
 
-import com.addie.core.blocks.ElevatorDoorBlock;
-import com.addie.core.blocks.LightBlock;
-import com.addie.core.blocks.TerminalBlock;
+import com.addie.core.blocks.*;
 import dev.amble.lib.block.ABlockSettings;
 import dev.amble.lib.container.impl.BlockContainer;
 import dev.amble.lib.datagen.util.AutomaticModel;
@@ -24,7 +22,7 @@ public class StargateNetworkBlocks extends BlockContainer {
 
     @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
     @NoEnglish
-    public static final Block LIGHT = new LightBlock(ABlockSettings.create()
+    public static final Block LIGHT_BLOCK = new LightBlock(ABlockSettings.create()
             .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
             .strength(1.0F, 2.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.COPPER));
 
@@ -41,4 +39,16 @@ public class StargateNetworkBlocks extends BlockContainer {
     public static final Block ELEVATOR_DOOR_BLOCK = new ElevatorDoorBlock(ABlockSettings.create()
             .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool().nonOpaque()
             .strength(1.5F, 6.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.METAL));
+
+    @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
+    @NoEnglish
+    public static final Block FANCY_LIGHT_BLOCK = new FancyLightBlock(ABlockSettings.create()
+            .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
+            .strength(1.0F, 3.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.METAL).luminance(state -> 13));
+
+    @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
+    @NoEnglish
+    public static final Block LONG_FANCY_LIGHT_BLOCK = new LongFancyLightBlock(ABlockSettings.create()
+            .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
+            .strength(1.0F, 3.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.METAL).luminance(state -> 13));
 }

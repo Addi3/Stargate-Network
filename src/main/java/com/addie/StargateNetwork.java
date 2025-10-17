@@ -5,8 +5,6 @@ import dev.amble.lib.container.RegistryContainer;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.util.Identifier;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class StargateNetwork implements ModInitializer {
 	public static final String MOD_ID = "stargate-network";

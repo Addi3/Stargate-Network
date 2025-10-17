@@ -81,13 +81,31 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
                     .criterion(hasItem(Blocks.BLACK_CONCRETE), conditionsFromItem(Blocks.BLACK_CONCRETE))
                     .criterion(hasItem(Blocks.COMPARATOR), conditionsFromItem(Blocks.COMPARATOR)));
 
-            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, StargateNetworkBlocks.LIGHT, 1)
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, StargateNetworkBlocks.LIGHT_BLOCK, 1)
                     .pattern("R")
                     .pattern("I")
                     .input('I',Items.IRON_INGOT)
                     .input('R',Blocks.REDSTONE_LAMP)
                     .criterion(hasItem(Blocks.REDSTONE_LAMP), conditionsFromItem(Blocks.REDSTONE_LAMP))
                     .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT)));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.FANCY_LIGHT_BLOCK, 1)
+                            .group("llights")
+                    .pattern("I I")
+                    .pattern("BIB")
+                    .pattern("F F")
+                    .input('I',Items.IRON_INGOT)
+                    .input('B',Blocks.IRON_BLOCK)
+                    .input('F',Blocks.OCHRE_FROGLIGHT)
+                    .criterion(hasItem(Blocks.OCHRE_FROGLIGHT), conditionsFromItem(Blocks.OCHRE_FROGLIGHT))
+                    .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                    .criterion(hasItem(Blocks.IRON_BLOCK), conditionsFromItem(Blocks.IRON_BLOCK)));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.LONG_FANCY_LIGHT_BLOCK, 1)
+                    .group("lights")
+                    .pattern("FFF")
+                    .input('F',StargateNetworkBlocks.FANCY_LIGHT_BLOCK)
+                    .criterion(hasItem(StargateNetworkBlocks.FANCY_LIGHT_BLOCK), conditionsFromItem(StargateNetworkBlocks.FANCY_LIGHT_BLOCK)));
 
 
             provider.addStonecutting(Blocks.YELLOW_CONCRETE, StargateNetworkBlocks.CAUTION_BLOCK,1);
@@ -107,7 +125,9 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
         // Blocks
             provider.addTranslation(StargateNetworkBlocks.CAUTION_BLOCK,"Caution Block");
             provider.addTranslation(StargateNetworkBlocks.TERMINAL_BLOCK,"Terminal");
-            provider.addTranslation(StargateNetworkBlocks.LIGHT,"Emergancy Light");
+            provider.addTranslation(StargateNetworkBlocks.LIGHT_BLOCK,"Emergancy Light");
+            provider.addTranslation(StargateNetworkBlocks.FANCY_LIGHT_BLOCK,"Fancy Light");
+            provider.addTranslation(StargateNetworkBlocks.LONG_FANCY_LIGHT_BLOCK,"Long Fancy Light");
 
             return provider;
         })));

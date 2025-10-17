@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "stargate-network:item/long_fancy_light_item"
+  }
+}
