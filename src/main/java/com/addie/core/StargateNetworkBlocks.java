@@ -51,4 +51,16 @@ public class StargateNetworkBlocks extends BlockContainer {
     public static final Block LONG_FANCY_LIGHT_BLOCK = new LongFancyLightBlock(ABlockSettings.create()
             .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
             .strength(1.0F, 3.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.METAL).luminance(state -> 13));
+
+    @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
+    @NoEnglish
+    public static final Block WALL_LIGHT_BLOCK = new WallLightBlock(ABlockSettings.create()
+            .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
+            .strength(1.0F, 3.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.METAL).luminance(state -> 13));
+
+    @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
+    @NoEnglish
+    public static final Block FLOOD_LIGHT_BLOCK = new FloodLightBlock(ABlockSettings.create()
+            .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MAIN)).requiresTool()
+            .strength(1.0F, 3.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.METAL));
 }

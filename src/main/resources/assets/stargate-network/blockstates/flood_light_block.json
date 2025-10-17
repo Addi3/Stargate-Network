@@ -1,0 +1,6 @@
+
+{
+  "variants": {
+    "": { "model": "stargate-network:block/flood_light_block" }
+  }
+}

@@ -1,9 +1,6 @@
 package com.addie.core;
 
-import com.addie.core.blockentites.ElevatorDoorBlockEntity;
-import com.addie.core.blockentites.FancyLightBlockEntity;
-import com.addie.core.blockentites.LongFancyLightBlockEntity;
-import com.addie.core.blockentites.TerminalBlockEntity;
+import com.addie.core.blockentites.*;
 import dev.amble.lib.animation.HasBedrockModel;
 import dev.amble.lib.container.impl.BlockEntityContainer;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -19,6 +16,12 @@ public class StargateNetworkBlockEntityTypes implements BlockEntityContainer {
 
     public static BlockEntityType<LongFancyLightBlockEntity> LONG_FANCY_LIGHT_BLOCK_ENTITY_TYPE = FabricBlockEntityTypeBuilder
             .create(LongFancyLightBlockEntity::new, StargateNetworkBlocks.LONG_FANCY_LIGHT_BLOCK).build();
+
+    public static BlockEntityType<WallLightBlockEntity> WALL_LIGHT_BLOCK_ENTITY_TYPE = FabricBlockEntityTypeBuilder
+            .create(WallLightBlockEntity::new, StargateNetworkBlocks.WALL_LIGHT_BLOCK).build();
+
+    public static BlockEntityType<FloodLightBlockEntity> FLOOD_LIGHT_BLOCK_ENTITY_TYPE = FabricBlockEntityTypeBuilder
+            .create(FloodLightBlockEntity::new, StargateNetworkBlocks.FLOOD_LIGHT_BLOCK).build();
 
     @HasBedrockModel
     public static BlockEntityType<ElevatorDoorBlockEntity> ELEVATOR_DOOR_BLOCK = FabricBlockEntityTypeBuilder.create(ElevatorDoorBlockEntity::new, StargateNetworkBlocks.ELEVATOR_DOOR_BLOCK).build();

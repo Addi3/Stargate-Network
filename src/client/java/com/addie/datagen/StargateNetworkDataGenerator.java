@@ -90,7 +90,7 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
                     .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT)));
 
             ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.FANCY_LIGHT_BLOCK, 1)
-                            .group("llights")
+                            .group("lights")
                     .pattern("I I")
                     .pattern("BIB")
                     .pattern("F F")
@@ -106,6 +106,24 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
                     .pattern("FFF")
                     .input('F',StargateNetworkBlocks.FANCY_LIGHT_BLOCK)
                     .criterion(hasItem(StargateNetworkBlocks.FANCY_LIGHT_BLOCK), conditionsFromItem(StargateNetworkBlocks.FANCY_LIGHT_BLOCK)));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.WALL_LIGHT_BLOCK, 1)
+                    .group("lights")
+                    .pattern("SS ")
+                    .pattern("FFS")
+                    .input('F',Blocks.OCHRE_FROGLIGHT)
+                    .input('S',Blocks.POLISHED_DEEPSLATE_SLAB)
+                    .criterion(hasItem(Blocks.OCHRE_FROGLIGHT), conditionsFromItem(Blocks.OCHRE_FROGLIGHT))
+                    .criterion(hasItem(Blocks.POLISHED_DEEPSLATE_SLAB), conditionsFromItem(Blocks.POLISHED_DEEPSLATE_SLAB)));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.FLOOD_LIGHT_BLOCK, 1)
+                    .group("lights")
+                    .pattern("T T")
+                    .pattern("III")
+                    .input('I',Items.IRON_INGOT)
+                    .input('T',Blocks.TORCH)
+                    .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                    .criterion(hasItem(Blocks.TORCH), conditionsFromItem(Blocks.TORCH)));
 
 
             provider.addStonecutting(Blocks.YELLOW_CONCRETE, StargateNetworkBlocks.CAUTION_BLOCK,1);
@@ -128,6 +146,8 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
             provider.addTranslation(StargateNetworkBlocks.LIGHT_BLOCK,"Emergancy Light");
             provider.addTranslation(StargateNetworkBlocks.FANCY_LIGHT_BLOCK,"Fancy Light");
             provider.addTranslation(StargateNetworkBlocks.LONG_FANCY_LIGHT_BLOCK,"Long Fancy Light");
+            provider.addTranslation(StargateNetworkBlocks.WALL_LIGHT_BLOCK,"Wall Light");
+            provider.addTranslation(StargateNetworkBlocks.FLOOD_LIGHT_BLOCK,"Flood Light");
 
             return provider;
         })));
