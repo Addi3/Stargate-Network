@@ -39,8 +39,9 @@ public class TerminalBlock extends BlockWithEntity implements BlockEntityProvide
 
     @Override
     public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
-        return false;
+        return true;
     }
+
 
     @Nullable
     @Override

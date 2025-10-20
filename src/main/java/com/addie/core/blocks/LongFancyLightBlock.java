@@ -43,9 +43,11 @@ public class LongFancyLightBlock extends BlockWithEntity implements BlockEntityP
         };
     }
 
+
+
     @Override
     public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
-        return false;
+        return true;
     }
 
     @Override

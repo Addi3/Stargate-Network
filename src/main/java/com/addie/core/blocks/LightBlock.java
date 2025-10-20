@@ -64,6 +64,11 @@ public class LightBlock extends Block {
     }
 
     @Override
+    public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
+        return true;
+    }
+
+    @Override
     public boolean emitsRedstonePower(BlockState state) {
         return false;
     }

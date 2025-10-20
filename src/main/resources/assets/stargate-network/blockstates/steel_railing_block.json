@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "stargate-network:block/steel_railing_block",
+      "y": 270
+    },
+    "facing=north": {
+      "model": "stargate-network:block/steel_railing_block",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "stargate-network:block/steel_railing_block"
+    },
+    "facing=west": {
+      "model": "stargate-network:block/steel_railing_block",
+      "y": 90
+    }
+  }
+}

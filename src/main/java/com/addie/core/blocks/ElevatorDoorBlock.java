@@ -75,6 +75,12 @@ public class ElevatorDoorBlock extends HorizontalFacingBlock implements BlockEnt
         builder.add(FACING, OPEN);
     }
 
+
+    @Override
+    public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
+        return true;
+    }
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos,
                               PlayerEntity player, Hand hand, BlockHitResult hit) {

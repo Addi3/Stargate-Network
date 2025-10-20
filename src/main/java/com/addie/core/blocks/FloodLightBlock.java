@@ -44,9 +44,11 @@ public class FloodLightBlock extends BlockWithEntity implements BlockEntityProvi
         };
     }
 
+
+
     @Override
     public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
-        return false;
+        return true;
     }
 
     @Override

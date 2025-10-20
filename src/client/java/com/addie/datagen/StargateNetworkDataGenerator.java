@@ -13,9 +13,13 @@ import dev.amble.lib.datagen.tag.AmbleBlockTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.server.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.util.Identifier;
 
 import static net.minecraft.data.server.recipe.RecipeProvider.conditionsFromItem;
 import static net.minecraft.data.server.recipe.RecipeProvider.hasItem;
@@ -72,11 +76,11 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
                     .pattern("BII")
                     .pattern("RII")
                     .pattern("CRI")
-                    .input('I',Items.IRON_INGOT)
+                    .input('I',StargateNetworkItems.STEEL_INGOT)
                     .input('R',Items.REDSTONE)
                     .input('B',Blocks.BLACK_CONCRETE)
                     .input('C',Blocks.COMPARATOR)
-                    .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                    .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT))
                     .criterion(hasItem(Items.REDSTONE), conditionsFromItem(Items.REDSTONE))
                     .criterion(hasItem(Blocks.BLACK_CONCRETE), conditionsFromItem(Blocks.BLACK_CONCRETE))
                     .criterion(hasItem(Blocks.COMPARATOR), conditionsFromItem(Blocks.COMPARATOR)));
@@ -84,22 +88,22 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
             ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, StargateNetworkBlocks.LIGHT_BLOCK, 1)
                     .pattern("R")
                     .pattern("I")
-                    .input('I',Items.IRON_INGOT)
+                    .input('I',StargateNetworkItems.STEEL_INGOT)
                     .input('R',Blocks.REDSTONE_LAMP)
                     .criterion(hasItem(Blocks.REDSTONE_LAMP), conditionsFromItem(Blocks.REDSTONE_LAMP))
-                    .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT)));
+                    .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT)));
 
             ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.FANCY_LIGHT_BLOCK, 1)
                             .group("lights")
                     .pattern("I I")
                     .pattern("BIB")
                     .pattern("F F")
-                    .input('I',Items.IRON_INGOT)
-                    .input('B',Blocks.IRON_BLOCK)
+                    .input('I',StargateNetworkItems.STEEL_INGOT)
+                    .input('B',StargateNetworkBlocks.STEEL_BLOCK)
                     .input('F',Blocks.OCHRE_FROGLIGHT)
                     .criterion(hasItem(Blocks.OCHRE_FROGLIGHT), conditionsFromItem(Blocks.OCHRE_FROGLIGHT))
-                    .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
-                    .criterion(hasItem(Blocks.IRON_BLOCK), conditionsFromItem(Blocks.IRON_BLOCK)));
+                    .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT))
+                    .criterion(hasItem(StargateNetworkBlocks.STEEL_BLOCK), conditionsFromItem(StargateNetworkBlocks.STEEL_BLOCK)));
 
             ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.LONG_FANCY_LIGHT_BLOCK, 1)
                     .group("lights")
@@ -120,13 +124,89 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
                     .group("lights")
                     .pattern("T T")
                     .pattern("III")
-                    .input('I',Items.IRON_INGOT)
+                    .input('I',StargateNetworkItems.STEEL_INGOT)
                     .input('T',Blocks.TORCH)
-                    .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                    .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT))
                     .criterion(hasItem(Blocks.TORCH), conditionsFromItem(Blocks.TORCH)));
 
 
             provider.addStonecutting(Blocks.YELLOW_CONCRETE, StargateNetworkBlocks.CAUTION_BLOCK,1);
+
+            provider.addBlastFurnaceRecipe(CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(Items.RAW_IRON),
+                                    RecipeCategory.MISC, StargateNetworkItems.RAW_STEEL, 0.2f, 200)
+                            .criterion(hasItem(Items.RAW_IRON), conditionsFromItem(Items.RAW_IRON)));
+
+
+            provider.addBlastFurnaceRecipe(CookingRecipeJsonBuilder.createBlasting(Ingredient.ofItems(StargateNetworkItems.RAW_STEEL),
+                            RecipeCategory.MISC, StargateNetworkItems.STEEL_INGOT, 0.2f, 200)
+                    .criterion(hasItem(StargateNetworkItems.RAW_STEEL), conditionsFromItem(StargateNetworkItems.RAW_STEEL)));
+
+
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, StargateNetworkItems.STEEL_NUGGET, 9);
+            provider.addShapelessRecipe(ShapelessRecipeJsonBuilder
+                    .create(RecipeCategory.MISC, StargateNetworkItems.STEEL_NUGGET, 9)
+                            .group("steel")
+                    .input(StargateNetworkItems.STEEL_INGOT)
+                    .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT)),
+                    new Identifier("stargate-network","steel_nugget_from_ingot"));
+
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, StargateNetworkItems.STEEL_INGOT, 9);
+            provider.addShapelessRecipe(ShapelessRecipeJsonBuilder
+                            .create(RecipeCategory.MISC, StargateNetworkItems.STEEL_INGOT, 9)
+                            .group("steel")
+                            .input(StargateNetworkBlocks.STEEL_BLOCK)
+                            .criterion(hasItem(StargateNetworkBlocks.STEEL_BLOCK), conditionsFromItem(StargateNetworkBlocks.STEEL_BLOCK)),
+                    new Identifier("stargate-network","steel_ingot_from_steel_block"));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, StargateNetworkBlocks.STEEL_BLOCK, 1)
+                    .group("steel")
+                    .pattern("III")
+                    .pattern("III")
+                    .pattern("III")
+                    .input('I',StargateNetworkItems.STEEL_INGOT)
+                    .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT)));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, StargateNetworkItems.STEEL_INGOT, 1)
+                    .group("steel")
+                    .pattern("NNN")
+                    .pattern("NNN")
+                    .pattern("NNN")
+                    .input('N',StargateNetworkItems.STEEL_NUGGET)
+                    .criterion(hasItem(StargateNetworkItems.STEEL_NUGGET), conditionsFromItem(StargateNetworkItems.STEEL_NUGGET)),
+                    new Identifier("stargate-network","steel_ingot_from_steel_nuggets"));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.STEEL_SLAB_BLOCK, 1)
+                    .group("steel")
+                    .pattern("III")
+                    .input('I',StargateNetworkItems.STEEL_INGOT)
+                    .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT)));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.STEEL_STAIRS_BLOCK, 1)
+                    .group("steel")
+                    .pattern("I  ")
+                    .pattern("II ")
+                    .pattern("III")
+                    .input('I',StargateNetworkItems.STEEL_INGOT)
+                    .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT)));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.STEEL_RAILING_BLOCK, 1)
+                    .group("steel")
+                    .pattern("III")
+                    .pattern("N N")
+                    .input('I',StargateNetworkItems.STEEL_INGOT)
+                    .input('N',StargateNetworkItems.STEEL_NUGGET)
+                    .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT))
+                    .criterion(hasItem(StargateNetworkItems.STEEL_NUGGET), conditionsFromItem(StargateNetworkItems.STEEL_NUGGET)));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.SLANTED_STEEL_RAILING_BLOCK, 1)
+                    .group("steel")
+                    .pattern("I  ")
+                    .pattern("NII")
+                    .pattern("  N")
+                    .input('I',StargateNetworkItems.STEEL_INGOT)
+                    .input('N',StargateNetworkItems.STEEL_NUGGET)
+                    .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT))
+                    .criterion(hasItem(StargateNetworkItems.STEEL_NUGGET), conditionsFromItem(StargateNetworkItems.STEEL_NUGGET)));
 
             return provider;
 
@@ -138,7 +218,8 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
             AmbleLanguageProvider provider = new AmbleLanguageProvider(output, LanguageType.EN_US);
 
         // Misc
-            provider.addTranslation("itemGroup.stargate-network.item_group",  "Stargate Network");
+            provider.addTranslation("itemGroup.stargate-network.tauri",  "Tau'ri");
+            provider.addTranslation("itemGroup.stargate-network.misc",  "SGN Misc");
 
         // Blocks
             provider.addTranslation(StargateNetworkBlocks.CAUTION_BLOCK,"Caution Block");
@@ -148,6 +229,16 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
             provider.addTranslation(StargateNetworkBlocks.LONG_FANCY_LIGHT_BLOCK,"Long Fancy Light");
             provider.addTranslation(StargateNetworkBlocks.WALL_LIGHT_BLOCK,"Wall Light");
             provider.addTranslation(StargateNetworkBlocks.FLOOD_LIGHT_BLOCK,"Flood Light");
+            provider.addTranslation(StargateNetworkBlocks.STEEL_BLOCK,"Steel Block");
+            provider.addTranslation(StargateNetworkBlocks.STEEL_STAIRS_BLOCK,"Steel Stairs");
+            provider.addTranslation(StargateNetworkBlocks.STEEL_SLAB_BLOCK,"Steel Slab");
+            provider.addTranslation(StargateNetworkBlocks.SLANTED_STEEL_RAILING_BLOCK,"Steel Railing (Slanted)");
+            provider.addTranslation(StargateNetworkBlocks.STEEL_RAILING_BLOCK,"Steel Railing");
+
+        // Items
+            provider.addTranslation(StargateNetworkItems.STEEL_INGOT,"Steel Ingot");
+            provider.addTranslation(StargateNetworkItems.STEEL_NUGGET,"Steel Nugget");
+            provider.addTranslation(StargateNetworkItems.RAW_STEEL,"Raw Steel");
 
             return provider;
         })));

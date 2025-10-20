@@ -45,8 +45,9 @@ public class WallLightBlock extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     public boolean isShapeFullCube(BlockState state, BlockView world, BlockPos pos) {
-        return false;
+        return true;
     }
+
 
     @Override
     public VoxelShape getCullingShape(BlockState state, BlockView world, BlockPos pos) {
