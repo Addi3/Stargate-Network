@@ -38,6 +38,7 @@ loom {
 
 fabricApi {
 	configureDataGeneration {
+        modId = "stargate-network"
 		client = true
 	}
 }
@@ -48,7 +49,7 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    modCompileOnlyApi "com.github.amblelabs:stargate:${project.stargate_version}"
+    //modImplementation "com.github.amblelabs:stargate:${project.stargate_version}"
 
     modImplementation "dev.drtheo:scheduler:${project.scheduler_version}"
     modImplementation "dev.drtheo:queue:${project.queue_version}"
@@ -102,14 +103,22 @@ jar {
 	}
 }
 
-// configure the maven publication
 publishing {
-	publications {
-		create("mavenJava", MavenPublication) {
-			artifactId = project.archives_base_name
-			from components.java
-		}
-	}
+    publications {
+        create("mavenJava", MavenPublication) {
+            artifactId = project.archives_base_name
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = "ci"
+            url = providers.environmentVariable("CI_MAVEN_PATH")
+        }
+    }
+}
+
 
 	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
 	repositories {
@@ -118,4 +127,3 @@ publishing {
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
 	}
-}
