@@ -11,18 +11,27 @@ base {
 }
 
 repositories {
+// For the scheduler library
+
     maven {
-        name = "JitPack"
-        url = "https://jitpack.io"
+        url "https://theo.is-a.dev/maven/"
+
+
         content {
-            includeGroup "com.github.amblelabs"
+            includeGroup "dev.drtheo"
         }
     }
 
-    // Scheduler, Queue, MultiDim, AutoJSON
-    maven { url "https://theo.is-a.dev/maven/" }
 
-}
+
+    maven {
+        url "https://amblelabs.github.io/maven"
+
+        content {
+            includeGroup "dev.amble"
+        }
+
+    }
 
 loom {
 	splitEnvironmentSourceSets()

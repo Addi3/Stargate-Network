@@ -94,4 +94,16 @@ public class StargateNetworkBlocks extends BlockContainer {
     public static final Block STEEL_BLOCK = new Block(ABlockSettings.create()
             .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.MISC)).requiresTool()
             .strength(1.0F, 3.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.COPPER));
+
+    @PickaxeMineable(tool = PickaxeMineable.Tool.IRON)
+    @NoEnglish
+    public static final Block GRATED_STEEL_STAIRS_BLOCK = new SteelStairsBlock(ABlockSettings.create()
+            .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.TAURI)).requiresTool()
+            .strength(1.0F, 3.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.COPPER));
+
+    //@AxeMineable(tool=AxeMineable.Tool.IRON)
+    @NoEnglish
+    public static final Block TABLE_BLOCK = new TableBlock(ABlockSettings.create()
+            .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.TAURI)).requiresTool()
+            .strength(1.0F, 3.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.WOOD));
 }

@@ -35,6 +35,8 @@ public class StargateNetworkClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(StargateNetworkBlocks.LONG_FANCY_LIGHT_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(StargateNetworkBlocks.FLOOD_LIGHT_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(StargateNetworkBlocks.STEEL_STAIRS_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(StargateNetworkBlocks.GRATED_STEEL_STAIRS_BLOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(StargateNetworkBlocks.TABLE_BLOCK, RenderLayer.getCutout());
     }
 
 

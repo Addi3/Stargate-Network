@@ -208,6 +208,23 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
                     .criterion(hasItem(StargateNetworkItems.STEEL_INGOT), conditionsFromItem(StargateNetworkItems.STEEL_INGOT))
                     .criterion(hasItem(StargateNetworkItems.STEEL_NUGGET), conditionsFromItem(StargateNetworkItems.STEEL_NUGGET)));
 
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.GRATED_STEEL_STAIRS_BLOCK, 1)
+                    .group("steel")
+                    .pattern("N  ")
+                    .pattern("NN ")
+                    .pattern("NNN")
+                    .input('N',StargateNetworkItems.STEEL_NUGGET)
+                    .criterion(hasItem(StargateNetworkItems.STEEL_NUGGET), conditionsFromItem(StargateNetworkItems.STEEL_NUGGET)));
+
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, StargateNetworkBlocks.TABLE_BLOCK, 2)
+                    .group("")
+                    .pattern("MM")
+                    .pattern("DD")
+                    .input('M',Blocks.MANGROVE_SLAB)
+                    .input('D',Blocks.POLISHED_DEEPSLATE)
+                    .criterion(hasItem(Blocks.MANGROVE_SLAB), conditionsFromItem(Blocks.MANGROVE_SLAB))
+                    .criterion(hasItem(Blocks.POLISHED_DEEPSLATE), conditionsFromItem(Blocks.POLISHED_DEEPSLATE)));
+
             return provider;
 
         })));
@@ -218,10 +235,12 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
             AmbleLanguageProvider provider = new AmbleLanguageProvider(output, LanguageType.EN_US);
 
         // Misc
-            provider.addTranslation("itemGroup.stargate-network.tauri",  "Tau'ri");
-            provider.addTranslation("itemGroup.stargate-network.misc",  "SGN Misc");
+            provider.addTranslation("itemGroup.stargate-network.tauri",  "SGN: Tau'ri");
+            provider.addTranslation("itemGroup.stargate-network.misc",  "SGN: Misc");
 
         // Blocks
+
+            // TAURI
             provider.addTranslation(StargateNetworkBlocks.CAUTION_BLOCK,"Caution Block");
             provider.addTranslation(StargateNetworkBlocks.TERMINAL_BLOCK,"Terminal");
             provider.addTranslation(StargateNetworkBlocks.LIGHT_BLOCK,"Emergancy Light");
@@ -234,6 +253,8 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
             provider.addTranslation(StargateNetworkBlocks.STEEL_SLAB_BLOCK,"Steel Slab");
             provider.addTranslation(StargateNetworkBlocks.SLANTED_STEEL_RAILING_BLOCK,"Steel Railing (Slanted)");
             provider.addTranslation(StargateNetworkBlocks.STEEL_RAILING_BLOCK,"Steel Railing");
+            provider.addTranslation(StargateNetworkBlocks.GRATED_STEEL_STAIRS_BLOCK,"Grated Steel Stairs");
+            provider.addTranslation(StargateNetworkBlocks.TABLE_BLOCK,"Table");
 
         // Items
             provider.addTranslation(StargateNetworkItems.STEEL_INGOT,"Steel Ingot");
