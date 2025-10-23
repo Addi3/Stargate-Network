@@ -4,6 +4,7 @@ import com.addie.core.blocks.*;
 import dev.amble.lib.block.ABlockSettings;
 import dev.amble.lib.container.impl.BlockContainer;
 import dev.amble.lib.datagen.util.AutomaticModel;
+import dev.amble.lib.datagen.util.AxeMineable;
 import dev.amble.lib.datagen.util.NoEnglish;
 import dev.amble.lib.datagen.util.PickaxeMineable;
 import dev.amble.lib.item.AItemSettings;
@@ -101,7 +102,7 @@ public class StargateNetworkBlocks extends BlockContainer {
             .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.TAURI)).requiresTool()
             .strength(1.0F, 3.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.COPPER));
 
-    //@AxeMineable(tool=AxeMineable.Tool.IRON)
+    @AxeMineable(tool= AxeMineable.Tool.IRON)
     @NoEnglish
     public static final Block TABLE_BLOCK = new TableBlock(ABlockSettings.create()
             .itemSettings(new AItemSettings().group(StargateNetworkItemGroups.TAURI)).requiresTool()
