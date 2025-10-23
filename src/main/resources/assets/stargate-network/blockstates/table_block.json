@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "stargate-network:block/table_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "stargate-network:block/table_block"
+    },
+    "facing=south": {
+      "model": "stargate-network:block/table_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "stargate-network:block/table_block",
+      "y": 270
+    }
+  }
+}
