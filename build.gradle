@@ -3,9 +3,8 @@ plugins {
 	id 'maven-publish'
 }
 
-apply from: 'versioning.gradle'
 
-
+version = project.mod_version
 group = project.maven_group
 
 base {
@@ -106,7 +105,6 @@ publishing {
     publications {
         create("mavenJava", MavenPublication) {
             artifactId = project.archives_base_name
-            version = artifactVersion
             from components.java
         }
     }
