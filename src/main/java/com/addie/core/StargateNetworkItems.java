@@ -8,17 +8,5 @@ import net.minecraft.item.Item;
 
 public class StargateNetworkItems extends ItemContainer {
 
-    @AutomaticModel
-    @NoEnglish
-    public static final Item STEEL_INGOT = new Item(new AItemSettings().group(StargateNetworkItemGroups.MISC));
-
-    @AutomaticModel
-    @NoEnglish
-    public static final Item STEEL_NUGGET = new Item(new AItemSettings().group(StargateNetworkItemGroups.MISC));
-
-    @AutomaticModel
-    @NoEnglish
-    public static final Item RAW_STEEL = new Item(new AItemSettings().group(StargateNetworkItemGroups.MISC));
-
 
 }

@@ -13,7 +13,7 @@ base {
 
 repositories {
     maven {
-        url "https://amblelabs.github.io/maven"
+        url "https://amblelabs.dev/maven"
 
         content {
             includeGroup "dev.amble"
@@ -22,12 +22,12 @@ repositories {
 
     maven {
         url "https://theo.is-a.dev/maven/"
-
         content {
             includeGroup "dev.drtheo"
         }
     }
 }
+
 
 loom {
 	splitEnvironmentSourceSets()
@@ -54,12 +54,14 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    modImplementation "dev.amble:stargate:${project.stargate_version}"
-
-   // modImplementation "dev.amble:lib:1.1.15-build.138-feat-ports+mc.1.20.1"
-
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    modApi("dev.amble:lib:${project.amblekit_version}") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+
+    modImplementation "dev.drtheo:multidim:${project.multidim_version}"
 
     // getter setter
     compileOnly 'org.projectlombok:lombok:1.18.34'
@@ -73,10 +75,14 @@ dependencies {
 
 processResources {
 	inputs.property "version", project.version
+    inputs.property "amblekit_version", project.amblekit_version
 
-	filesMatching("fabric.mod.json") {
-		expand "version": inputs.properties.version
-	}
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version,
+                "minecraft_version": project.minecraft_version,
+                "loader_version": project.loader_version,
+                "amblekit_version": project.amblekit_version
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
