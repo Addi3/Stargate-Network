@@ -73,7 +73,7 @@ dependencies {
 
     // waystones
     modImplementation "curse.maven:waystones-245755:7454281"
-    implementation("net.blay09.mods:balm-common:21.11.6")
+    implementation("net.blay09.mods:balm-common:7.3.38")
 
     modApi("dev.amble:lib:${project.amblekit_version}") {
         exclude(group: "net.fabricmc.fabric-api")
