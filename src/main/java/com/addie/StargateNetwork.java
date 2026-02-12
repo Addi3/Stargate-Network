@@ -21,6 +21,5 @@ public class StargateNetwork implements ModInitializer {
         RegistryContainer.register(StargateNetworkBlocks.class, MOD_ID);
         RegistryContainer.register(StargateNetworkItemGroups.class, MOD_ID);
         RegistryContainer.register(StargateNetworkItems.class, MOD_ID);
-        StargateNetworkSounds.init();
 	}
 }
