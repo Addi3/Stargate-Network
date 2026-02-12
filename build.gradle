@@ -26,6 +26,10 @@ repositories {
             includeGroup "dev.drtheo"
         }
     }
+
+    maven {
+        url "https://cursemaven.com"
+    }
 }
 
 
@@ -56,6 +60,10 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+
+    // waystones
+    modImplementation "curse.maven:waystones-245755:7454281"
 
     modApi("dev.amble:lib:${project.amblekit_version}") {
         exclude(group: "net.fabricmc.fabric-api")

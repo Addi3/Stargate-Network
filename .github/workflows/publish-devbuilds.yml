@@ -35,6 +35,7 @@ jobs:
       - name: Build
         run: ./gradlew build
 
+
       - name: Setup Amble Maven
         id: setup-maven
         uses: drtheodor/static-file-server-actions/upload/setup@main
@@ -49,6 +50,6 @@ jobs:
       - name: Publish to Amble Maven
         uses: drtheodor/static-file-server-actions/upload@main
         with:
-          published: com/addie/stargate-network
+          published: com/addie
           token: ${{ secrets.PAT_TOKEN }}
-          message: "chore: publish StargateNetwork artifacts"
+          message: "chore: publish Stargate Network artifacts"
