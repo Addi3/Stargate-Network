@@ -26,19 +26,6 @@ repositories {
             includeGroup "dev.drtheo"
         }
     }
-
-    // Waystones
-    maven {
-        url "https://cursemaven.com"
-    }
-
-    // Waystones-balm
-    maven {
-        url = 'https://maven.twelveiterations.com/repository/maven-public/'
-        content {
-            includeGroup 'net.blay09.mods'
-        }
-    }
 }
 
 
@@ -70,14 +57,6 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-
-    // waystones
-    modImplementation "curse.maven:waystones-245755:7454281"
-    implementation("net.blay09.mods:balm-common:7.3.38")
-
-    modApi("dev.amble:lib:${project.amblekit_version}") {
-        exclude(group: "net.fabricmc.fabric-api")
-    }
 
     modImplementation "dev.drtheo:multidim:${project.multidim_version}"
 
