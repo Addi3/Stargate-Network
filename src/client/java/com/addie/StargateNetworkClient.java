@@ -13,7 +13,7 @@ public class StargateNetworkClient implements ClientModInitializer {
         BlockRenderLayerMapRegister();
 	}
     public static void BlockRenderLayerMapRegister() {
-        BlockRenderLayerMap.INSTANCE.putBlock(StargateNetworkBlocks.ANCIENT_WAYSTONE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(StargateNetworkBlocks.ANCIENT_OBELISK, RenderLayer.getCutout());
     }
 
 

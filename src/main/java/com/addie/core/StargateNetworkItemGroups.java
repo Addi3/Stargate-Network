@@ -8,8 +8,8 @@ import net.minecraft.item.Items;
 
 public class StargateNetworkItemGroups implements ItemGroupContainer {
 
-    public static final AItemGroup TAURI = AItemGroup.builder(StargateNetwork.id("tauri"))
-            .icon(() -> new ItemStack(Items.DIAMOND.asItem()))
+    public static final AItemGroup MAIN = AItemGroup.builder(StargateNetwork.id("sgn"))
+            .icon(() -> new ItemStack(StargateNetworkItems.ZPM.asItem()))
             .build();
 
 }

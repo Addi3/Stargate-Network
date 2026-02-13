@@ -1,6 +1,6 @@
 package com.addie.core;
 
-import com.addie.core.blocks.WaystoneBlock;
+import com.addie.core.blocks.ObeliskBlock;
 import dev.amble.lib.block.ABlockSettings;
 import dev.amble.lib.container.impl.BlockContainer;
 import dev.amble.lib.datagen.util.NoEnglish;
@@ -14,9 +14,9 @@ public class StargateNetworkBlocks extends BlockContainer {
 
         @NoEnglish
         @PickaxeMineable(tool = PickaxeMineable.Tool.STONE)
-    public static final Block ANCIENT_WAYSTONE = new WaystoneBlock(ABlockSettings.create()
+    public static final Block ANCIENT_OBELISK = new ObeliskBlock(ABlockSettings.create()
                 .itemSettings(new AItemSettings()
-                        //.group(AITExtrasItemGroups.MAIN)
+                        .group(StargateNetworkItemGroups.MAIN)
                 ).requiresTool()
                 .strength(2.0F, 3.0F).pistonBehavior(PistonBehavior.IGNORE).sounds(BlockSoundGroup.DEEPSLATE).nonOpaque());
 
