@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/stone",
+    "east": "stargate-network:block/symbol_block_side_a",
+    "north": "stargate-network:block/symbol_block_side_b",
+    "particle": "minecraft:block/stone",
+    "south": "stargate-network:block/symbol_block_side_b",
+    "up": "minecraft:block/stone",
+    "west": "stargate-network:block/symbol_block_side_a"
+  }
+}

@@ -1,5 +1,6 @@
 package com.addie.core;
 
+import com.addie.core.blocks.AncientSymbolBlock;
 import com.addie.core.blocks.ObeliskBlock;
 import dev.amble.lib.block.ABlockSettings;
 import dev.amble.lib.container.impl.BlockContainer;
@@ -20,5 +21,11 @@ public class StargateNetworkBlocks extends BlockContainer {
                 ).requiresTool()
                 .strength(2.0F, 3.0F).pistonBehavior(PistonBehavior.IGNORE).sounds(BlockSoundGroup.DEEPSLATE).nonOpaque());
 
-
+        @NoEnglish
+        @PickaxeMineable(tool = PickaxeMineable.Tool.STONE)
+    public static final Block CARVED_ANCIENT_STONE = new AncientSymbolBlock(ABlockSettings.create()
+                .itemSettings(new AItemSettings()
+                        .group(StargateNetworkItemGroups.MAIN)
+                ).requiresTool()
+                .strength(1.5F, 6.0F).pistonBehavior(PistonBehavior.NORMAL).sounds(BlockSoundGroup.STONE).nonOpaque());
 }

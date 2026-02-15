@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "stargate-network:block/carved_ancient_stone",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "stargate-network:block/carved_ancient_stone"
+    },
+    "facing=south": {
+      "model": "stargate-network:block/carved_ancient_stone",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "stargate-network:block/carved_ancient_stone",
+      "y": 270
+    }
+  }
+}

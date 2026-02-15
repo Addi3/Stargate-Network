@@ -13,6 +13,14 @@ import dev.amble.lib.datagen.sound.AmbleSoundProvider;
 import dev.amble.lib.datagen.tag.AmbleBlockTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.minecraft.block.Blocks;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.item.Items;
+import net.minecraft.recipe.book.RecipeCategory;
+
+import static net.minecraft.data.server.recipe.RecipeProvider.conditionsFromItem;
+import static net.minecraft.data.server.recipe.RecipeProvider.hasItem;
 
 public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
     @Override
@@ -62,6 +70,27 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
         pack.addProvider((((output, registriesFuture) -> {
             StargateNetworkRecipeProvider provider = new StargateNetworkRecipeProvider(output);
 
+            ;provider.addShapedRecipe(ShapedRecipeJsonBuilder.create(RecipeCategory.TRANSPORTATION, StargateNetworkBlocks.ANCIENT_OBELISK, 2)
+                    .pattern(" B ")
+                    .pattern("DBD")
+                    .pattern("DLD")
+                    .input('B',Blocks.STONE_BRICKS)
+                    .input('L',Blocks.LODESTONE)
+                    .input('D',Blocks.POLISHED_DEEPSLATE_WALL)
+                    .criterion(hasItem(Blocks.STONE_BRICKS), conditionsFromItem(Blocks.STONE_BRICKS))
+                    .criterion(hasItem(Blocks.LODESTONE), conditionsFromItem(Blocks.LODESTONE))
+                    .criterion(hasItem(Blocks.POLISHED_DEEPSLATE_WALL), conditionsFromItem(Blocks.POLISHED_DEEPSLATE_WALL)));
+
+            ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, StargateNetworkItems.OBELISK_LINKER, 1);
+            provider.addShapelessRecipe(ShapelessRecipeJsonBuilder
+                    .create(RecipeCategory.MISC, StargateNetworkItems.OBELISK_LINKER, 1)
+                    .input(Items.MAP)
+                    .input(Items.COMPASS)
+                    .criterion(hasItem(Items.MAP), conditionsFromItem(Items.MAP))
+                    .criterion(hasItem(Items.COMPASS), conditionsFromItem(Items.COMPASS)));
+
+
+            provider.addStonecutting(Blocks.STONE, StargateNetworkBlocks.CARVED_ANCIENT_STONE,1);
 
             return provider;
 
@@ -74,6 +103,7 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
 
             // Blocks
         provider.addTranslation(StargateNetworkBlocks.ANCIENT_OBELISK,"Ancient Obelisk");
+        provider.addTranslation(StargateNetworkBlocks.CARVED_ANCIENT_STONE,"Carved Ancient Stone");
 
             // Items
         provider.addTranslation(StargateNetworkItems.ZPM,"ZPM");

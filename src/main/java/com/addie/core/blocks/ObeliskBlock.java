@@ -1,6 +1,7 @@
 package com.addie.core.blocks;
 
 import com.addie.core.StargateNetworkItems;
+import com.addie.core.StargateNetworkSounds;
 import com.addie.core.blockentites.AncientObeliskBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -108,9 +109,8 @@ public class ObeliskBlock extends BlockWithEntity {
                     );
                 }
             }
-            /// TODO- replace with sound from show!
-            world.playSound(null, pos, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1f, 1f);
-            world.playSound(null, target, SoundEvents.ENTITY_ENDERMAN_TELEPORT, SoundCategory.BLOCKS, 1f, 1f);
+            world.playSound(null, pos, StargateNetworkSounds.OBELISK_TELEPORT, SoundCategory.BLOCKS, 1f, 1f);
+            world.playSound(null, target, StargateNetworkSounds.OBELISK_TELEPORT, SoundCategory.BLOCKS, 1f, 1f);
         }
 
         return ActionResult.SUCCESS;
