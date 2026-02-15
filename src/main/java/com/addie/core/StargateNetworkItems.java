@@ -2,17 +2,25 @@ package com.addie.core;
 
 
 import com.addie.core.items.LinkerItem;
+import com.addie.core.items.ZPMItem;
 import dev.amble.lib.container.impl.ItemContainer;
 import dev.amble.lib.datagen.util.AutomaticModel;
 import dev.amble.lib.datagen.util.NoEnglish;
 import dev.amble.lib.item.AItemSettings;
 import net.minecraft.item.Item;
+import net.minecraft.util.Rarity;
 
 public class StargateNetworkItems extends ItemContainer {
 
     ///  TODO- make obtainable, maybe some new structure in the end (ancient outpost?)??
     @NoEnglish
-    public static final Item ZPM = new Item (new AItemSettings().group(StargateNetworkItemGroups.MAIN));
+    public static final Item ZPM = new ZPMItem(new AItemSettings().group(StargateNetworkItemGroups.MAIN).rarity(Rarity.EPIC).maxCount(3));
+
+    @NoEnglish
+    public static final Item DEPLETED_ZPM = new ZPMItem(new AItemSettings().group(StargateNetworkItemGroups.MAIN).maxCount(3));
+
+    @NoEnglish
+    public static final Item OVERCHARGED_ZPM = new ZPMItem(new AItemSettings().group(StargateNetworkItemGroups.MAIN).rarity(Rarity.EPIC).maxCount(3));
 
     @AutomaticModel
     @NoEnglish

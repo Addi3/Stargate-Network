@@ -108,18 +108,28 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
 
             // Items
         provider.addTranslation(StargateNetworkItems.ZPM,"ZPM");
+        provider.addTranslation(StargateNetworkItems.DEPLETED_ZPM,"ZPM");
+        provider.addTranslation(StargateNetworkItems.OVERCHARGED_ZPM,"ZPM");
         provider.addTranslation(StargateNetworkItems.ANCIENT_GLASS_CRYSTAL,"Ancient Glass Crystal");
         provider.addTranslation(StargateNetworkItems.OBELISK_LINKER,"Ancient Obelisk Linker");
 
             // Misc
         provider.addTranslation(StargateNetworkItemGroups.MAIN,"Stargate Network");
+        provider.addTranslation("effect.stargate-network.radiation","Radiation");
+        provider.addTranslation("death.attack.radiation","%1$s succumbed to radiation poisoning");
+        provider.addTranslation("death.attack.radiation.player","%1$s was killed by %2$s while irradiated");
+
+                // Tooltips
         provider.addTranslation("item.linker.nopower","Cannot Link, No Power!");
         provider.addTranslation("item.linker.selected","Obelisk Selected!");
         provider.addTranslation("item.linker.linked","Obelisks Successfully Linked!");
         provider.addTranslation("item.linker.tolink","Shift + Right-CLick To Link!");
-        provider.addTranslation("effect.stargate-network.radiation","Radiation");
-        provider.addTranslation("death.attack.radiation","%1$s succumbed to radiation poisoning");
-        provider.addTranslation("death.attack.radiation.player","%1$s was killed by %2$s while irradiated");
+        provider.addTranslation("item.zpm.charged","Charged");
+        provider.addTranslation("item.zpm.depleted","Depleted");
+        provider.addTranslation("item.zpm.overcharged","⚠ Overcharged ⚠");
+        provider.addTranslation("tooltip.zpm.hint","HOLD Shift for more info!");
+        provider.addTranslation("item.zpm.status","Status:");
+        provider.addTranslation("item.overchargedzpm.caution","Caution, DO NOT drop!");
 
             return provider;
         })));

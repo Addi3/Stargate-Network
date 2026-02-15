@@ -1,0 +1,10 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"parent": "stargate-network:item/zpm",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "stargate-network:item/zpm",
+		"particle": "stargate-network:item/zpm"
+	}
+}
