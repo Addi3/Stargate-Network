@@ -1,5 +1,6 @@
 package com.addie.datagen;
 
+import com.addie.StargateNetwork;
 import com.addie.core.StargateNetworkBlocks;
 import com.addie.core.StargateNetworkItemGroups;
 import com.addie.core.StargateNetworkItems;
@@ -116,6 +117,9 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
         provider.addTranslation("item.linker.selected","Obelisk Selected!");
         provider.addTranslation("item.linker.linked","Obelisks Successfully Linked!");
         provider.addTranslation("item.linker.tolink","Shift + Right-CLick To Link!");
+        provider.addTranslation("effect.stargate-network.radiation","Radiation");
+        provider.addTranslation("death.attack.radiation","%1$s succumbed to radiation poisoning");
+        provider.addTranslation("death.attack.radiation.player","%1$s was killed by %2$s while irradiated");
 
             return provider;
         })));

@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.9-SNAPSHOT'
+    id 'fabric-loom' version '1.12-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -24,6 +24,22 @@ repositories {
         url "https://theo.is-a.dev/maven/"
         content {
             includeGroup "dev.drtheo"
+        }
+    }
+
+    maven {
+        url "https://dl.cloudsmith.io/public/klikli-dev/mods/maven/"
+        content {
+            includeGroup "com.klikli_dev"
+        }
+    }
+
+    maven {
+        name = "Jei and Patchouli Maven"
+        url = 'https://maven.blamejared.com/'
+        content {
+            includeGroup "vazkii.patchouli"
+            includeGroup "mezz.jei"
         }
     }
 }
@@ -60,6 +76,8 @@ dependencies {
 
     modImplementation "dev.drtheo:multidim:${project.multidim_version}"
 
+    modImplementation "dev.amble:stargate:${project.stargate_version}"
+
     modApi("dev.amble:lib:${project.amblekit_version}") {
 
 
@@ -91,7 +109,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 17
+	it.options.release = 21
 }
 
 java {
@@ -100,8 +118,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_17
-	targetCompatibility = JavaVersion.VERSION_17
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
 }
 
 jar {
