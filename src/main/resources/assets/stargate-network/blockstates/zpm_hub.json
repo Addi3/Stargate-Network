@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "contains_zpm=false,contains_overcharged_zpm=false,contains_depleated_zpm=false": {
+      "model": "stargate-network:block/zpm_hub"
+    },
+
+    "contains_zpm=true,contains_overcharged_zpm=false,contains_depleated_zpm=false": {
+      "model": "stargate-network:block/zpm_hub_zpm"
+    },
+
+    "contains_zpm=false,contains_overcharged_zpm=true,contains_depleated_zpm=false": {
+      "model": "stargate-network:block/zpm_hub_overcharged"
+    },
+
+    "contains_zpm=false,contains_overcharged_zpm=false,contains_depleated_zpm=true": {
+      "model": "stargate-network:block/zpm_hub_depleated"
+    }
+  }
+}

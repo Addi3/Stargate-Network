@@ -25,6 +25,7 @@ public class StargateNetworkClient implements ClientModInitializer {
 
     public static void BlockRenderLayerMapRegister() {
         BlockRenderLayerMap.INSTANCE.putBlock(StargateNetworkBlocks.ANCIENT_OBELISK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(StargateNetworkBlocks.ZPM_HUB, RenderLayer.getCutout());
     }
 
 }
