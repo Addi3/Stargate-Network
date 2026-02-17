@@ -129,7 +129,6 @@ public class StargateNetworkDataGenerator  implements DataGeneratorEntrypoint {
         provider.addTranslation("item.zpm.overcharged","⚠ Overcharged ⚠");
         provider.addTranslation("tooltip.zpm.hint","HOLD Shift for more info!");
         provider.addTranslation("item.zpm.status","Status:");
-        provider.addTranslation("item.overchargedzpm.caution","Caution, DO NOT drop!");
 
             return provider;
         })));

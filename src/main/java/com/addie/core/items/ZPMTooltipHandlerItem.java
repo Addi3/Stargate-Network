@@ -31,11 +31,6 @@ public class ZPMTooltipHandlerItem extends Item {
 
     private void handleTooltip(ItemStack stack, List<Text> tooltip, TooltipContextExt ctx) {
 
-        if (stack.getItem() == StargateNetworkItems.OVERCHARGED_ZPM) {
-            tooltip.add(Text.translatable("item.overchargedzpm.caution")
-                    .formatted(Formatting.DARK_RED));
-        }
-
         if (!showTooltip)
             return;
 

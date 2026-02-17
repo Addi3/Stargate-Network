@@ -1,0 +1,9 @@
+{
+  "name": "Stargate Network Guide",
+  "landing_text": "The True Guide to the Network ",
+  "version": 1,
+  "creative_tab": "stargate-network:main",
+  "use_resource_pack": true,
+  "book_texture": "stargate-network:patchouli_books/stargate_network_guide/images/book.png",
+  "model": "stargate-network:book"
+}

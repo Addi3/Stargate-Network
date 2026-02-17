@@ -1,0 +1,18 @@
+{
+  "name": "Language",
+  "icon": "stargate-network:textures/item/obelisk_linker.png",
+  "sortnum":4,
+  "description": "lorem ipsum",
+  "category": "stargate-network:advanced",
+  "pages": [
+    {
+      "type":"patchouli:text",
+      "title": "SG-N Language",
+      "text": "This mod uses the illageralt language (a variant on the standard galactic alphabet). Here is where you will find a direct translation for each symbol!"
+    },
+    {
+      "type":"patchouli:image",
+      "images":["stargate-network:patchouli_books/stargate_network_guide/images/translation.png","stargate-network:patchouli_books/stargate_network_guide/images/translation_alt.png"]
+    }
+  ]
+}

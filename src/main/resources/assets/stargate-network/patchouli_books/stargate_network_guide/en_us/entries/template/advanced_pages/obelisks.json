@@ -1,0 +1,22 @@
+{
+  "name": "Obelisks",
+  "icon": "stargate-network:textures/item/ancient_obelisk_item.png",
+  "sortnum":4,
+  "description": "lorem ipsum",
+  "category": "stargate-network:advanced",
+  "pages": [
+    {
+      "type":"patchouli:multiblock",
+      "name":"Ancient Obelisk",
+      "enable_visualize":false,
+      "multiblock":{
+        "pattern":[
+          ["  0  "],
+          ["  T  "]
+      ],"mapping":{
+        "T":"stargate-network:ancient_obelisk"}
+      },
+      "text":"Temporary Description."
+    }
+  ]
+}
