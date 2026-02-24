@@ -1,0 +1,9 @@
+{
+  "textures": [
+    "stargate-network:transport_beam_0",
+    "stargate-network:transport_beam_1",
+    "stargate-network:transport_beam_2",
+    "stargate-network:transport_beam_3",
+    "stargate-network:transport_beam_4"
+  ]
+}

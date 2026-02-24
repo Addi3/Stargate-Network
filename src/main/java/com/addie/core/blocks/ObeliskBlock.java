@@ -1,5 +1,6 @@
 package com.addie.core.blocks;
 
+import com.addie.StargateNetwork;
 import com.addie.core.StargateNetworkItems;
 import com.addie.core.StargateNetworkSounds;
 import com.addie.core.blockentites.AncientObeliskBlockEntity;
@@ -7,7 +8,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -93,19 +93,19 @@ public class ObeliskBlock extends BlockWithEntity {
             if (world instanceof ServerWorld serverWorld) {
                 for (int i = 0; i < 10; i++) {
                     serverWorld.spawnParticles(
-                            ParticleTypes.FLASH,
+                            StargateNetwork.TRANSPORT_BEAM,
                             pos.getX() + 0.5 + (serverWorld.random.nextDouble() - 0.5),
                             pos.getY() + 1.0 + serverWorld.random.nextDouble() * 0.5,
                             pos.getZ() + 0.5 + (serverWorld.random.nextDouble() - 0.5),
-                            1, 0, 0, 0, 0.0
+                            5, 0.5, 0.5, 0.5, 0.0
                     );
 
                     serverWorld.spawnParticles(
-                            ParticleTypes.FLASH,
+                            StargateNetwork.TRANSPORT_BEAM,
                             target.getX() + 0.5 + (serverWorld.random.nextDouble() - 0.5),
                             target.getY() + 1.0 + serverWorld.random.nextDouble() * 0.5,
                             target.getZ() + 0.5 + (serverWorld.random.nextDouble() - 0.5),
-                            1, 0, 0, 0, 0.0
+                            5, 0.5, 0.5, 0.5, 0.0
                     );
                 }
             }

@@ -5,7 +5,9 @@ import com.addie.core.effect.RadiationEffect;
 import dev.amble.lib.container.RegistryContainer;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -16,6 +18,7 @@ public class StargateNetwork implements ModInitializer {
     public static Identifier id(String path) {
         return new Identifier(MOD_ID, path);
     }
+    public static final DefaultParticleType TRANSPORT_BEAM = FabricParticleTypes.simple();
 
 	@Override
 	public void onInitialize() {
@@ -25,6 +28,7 @@ public class StargateNetwork implements ModInitializer {
         RegistryContainer.register(StargateNetworkItems.class, MOD_ID);
         RegistryContainer.register(StargateNetworkBlockEntityTypes.class, MOD_ID);
         StargateNetworkSounds.init();
+        registerParticles();
 	}
 
     public static final StatusEffect RADIATION =
@@ -33,4 +37,8 @@ public class StargateNetwork implements ModInitializer {
                     new Identifier("stargate-network", "radiation"),
                     new RadiationEffect()
             );
+
+    public void registerParticles() {
+        Registry.register(Registries.PARTICLE_TYPE, id("transport_beam"), TRANSPORT_BEAM);
+    }
 }
