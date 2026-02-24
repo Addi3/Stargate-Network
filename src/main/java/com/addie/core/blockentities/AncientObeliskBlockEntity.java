@@ -1,4 +1,4 @@
-package com.addie.core.blockentites;
+package com.addie.core.blockentities;
 
 import com.addie.core.StargateNetworkBlockEntityTypes;
 import com.addie.core.blocks.ObeliskBlock;

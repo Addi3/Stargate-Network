@@ -1,7 +1,7 @@
 package com.addie.renderers;
 
 import com.addie.StargateNetwork;
-import com.addie.core.blockentites.AncientObeliskBlockEntity;
+import com.addie.core.blockentities.AncientObeliskBlockEntity;
 import com.addie.models.AncientObeliskModel;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;

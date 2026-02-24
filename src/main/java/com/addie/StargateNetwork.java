@@ -29,6 +29,7 @@ public class StargateNetwork implements ModInitializer {
         RegistryContainer.register(StargateNetworkBlockEntityTypes.class, MOD_ID);
         StargateNetworkSounds.init();
         registerParticles();
+        StargateNetworkEntities.register();
 	}
 
     public static final StatusEffect RADIATION =

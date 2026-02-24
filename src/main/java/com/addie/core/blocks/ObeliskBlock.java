@@ -3,7 +3,7 @@ package com.addie.core.blocks;
 import com.addie.StargateNetwork;
 import com.addie.core.StargateNetworkItems;
 import com.addie.core.StargateNetworkSounds;
-import com.addie.core.blockentites.AncientObeliskBlockEntity;
+import com.addie.core.blockentities.AncientObeliskBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;

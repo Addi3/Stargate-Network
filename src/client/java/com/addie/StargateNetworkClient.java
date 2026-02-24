@@ -4,11 +4,17 @@ package com.addie;
 
 import com.addie.core.StargateNetworkBlockEntityTypes;
 import com.addie.core.StargateNetworkBlocks;
+import com.addie.core.StargateNetworkEntities;
 import com.addie.particles.TransportBeamParticle;
+import com.addie.puddlejumper.PuddleJumperInputHandler;
+import com.addie.puddlejumper.PuddleJumperKeybinds;
 import com.addie.renderers.AncientObeliskRenderer;
+import com.addie.renderers.PuddleJumperRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
@@ -19,12 +25,22 @@ public class StargateNetworkClient implements ClientModInitializer {
 	public void onInitializeClient() {
         BlockRenderLayerMapRegister();
         blockEntityRendererRegister();
+        entityRendererRegister();
         registerParticles();
-	}
+        PuddleJumperKeybinds.register();
+        ClientTickEvents.END_CLIENT_TICK.register(client -> PuddleJumperInputHandler.tick());
+    }
 
     public static void blockEntityRendererRegister() {
         BlockEntityRendererFactories.register(StargateNetworkBlockEntityTypes.ANCIENT_OBELISK_BLOCK_ENTITY_TYPE, AncientObeliskRenderer::new);
 
+    }
+
+    public static void entityRendererRegister() {
+        EntityRendererRegistry.register(
+                StargateNetworkEntities.PUDDLE_JUMPER,
+                PuddleJumperRenderer::new
+        );
     }
 
     public static void BlockRenderLayerMapRegister() {

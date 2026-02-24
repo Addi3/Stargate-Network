@@ -1,12 +1,11 @@
 package com.addie.core.items;
 
-import com.addie.core.blockentites.AncientObeliskBlockEntity;
+import com.addie.core.blockentities.AncientObeliskBlockEntity;
 import com.addie.core.blocks.ObeliskBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
