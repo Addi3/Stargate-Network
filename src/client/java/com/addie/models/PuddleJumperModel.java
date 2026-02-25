@@ -15,7 +15,7 @@ public class PuddleJumperModel extends SinglePartEntityModel<PuddleJumperEntity>
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
-        ModelPartData root = modelPartData.addChild("root", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 16.0F, 0.0F));
+        ModelPartData root = modelPartData.addChild("root", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 16.0F, 12.9F));
 
         ModelPartData exterior = root.addChild("exterior", ModelPartBuilder.create().uv(0, 128).cuboid(-8.0F, -16.0F, -41.0F, 16.0F, 16.0F, 48.0F, new Dilation(0.6F))
                 .uv(0, 0).cuboid(-8.0F, -16.0F, -41.0F, 16.0F, 16.0F, 48.0F, new Dilation(0.0F))

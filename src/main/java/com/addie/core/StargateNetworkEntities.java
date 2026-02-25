@@ -15,11 +15,12 @@ public class StargateNetworkEntities {
 
     public static final EntityType<PuddleJumperEntity> PUDDLE_JUMPER =
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, PuddleJumperEntity::new)
-                    .dimensions(EntityDimensions.changing(3f, 1.5f))
+                    .dimensions(EntityDimensions.changing(3f, 2f))
+                    .fireImmune()
                     .build();
 
     public static void register() {
-        Registry.register(Registries.ENTITY_TYPE, new Identifier(StargateNetwork.MOD_ID, "puddle_jumper"), PUDDLE_JUMPER);
+     Registry.register(Registries.ENTITY_TYPE, new Identifier(StargateNetwork.MOD_ID, "puddle_jumper"), PUDDLE_JUMPER);
         FabricDefaultAttributeRegistry.register(PUDDLE_JUMPER, PuddleJumperEntity.createAttributes());
     }
 }
